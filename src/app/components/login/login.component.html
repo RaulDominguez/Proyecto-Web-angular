@@ -1,0 +1,23 @@
+<div fxFlexLayout="center" fxFlex="50%">
+  <h3>Login</h3>
+  <hr>
+
+
+    <div class="row">
+      <div class="col-sm-12 form-group">
+        <form class="example-full-width">
+          <input placeholder="Usuario" name="user" [(ngModel)]="user" >
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 form-group">
+        <form class="example-full-width">
+          <input placeholder="Contraseña" name="password" [(ngModel)]="password" >
+        </form>
+      </div>
+    </div>
+
+     <button md-raised-button color="primary" (click)="onLogin()">Iniciar Sesion</button>
+
+</div>

@@ -1,0 +1,25 @@
+<h2>Lista de Ventas</h2>
+<table class="table table-hover">
+  <thead s>
+    <tr>
+      <th># Orden</th>
+      <th>Fecha</th>
+      <th>Cliente</th>
+      <th>Ciudad</th>
+      <th>Productos</th>
+      <th>Total</th>
+      <th style="width: 50px"></th>
+      <th style="width: 50px"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let sale of sales">
+      <td>{{sale.order}}</td>
+      <td>{{sale.date | date}}</td>
+      <td>{{sale.client.name}} {{sale.client.lastName}}</td>
+      <td>{{sale.address.city}}</td>
+      <td>{{sale.items.length}}</td>
+      <td>${{sale.total}}</td>
+    </tr>
+  </tbody>
+</table>
