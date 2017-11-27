@@ -22,7 +22,7 @@ export class UserService {
     this.userChanges.emit();
   }
 
-  isLogedin<boolean>(){ //Se cambio por booelan
+  isLogedin<booelean>(){ //Se cambio por booelan
     return this.logedin;
   }
 
