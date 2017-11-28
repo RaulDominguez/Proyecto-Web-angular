@@ -10,7 +10,7 @@ export class SalesComponent implements OnInit {
 
   constructor(private salesService: SalesService) {
 
-    this.sales = this.salesService.sales;
+    
     this.sale = this.salesService.sale;
 
   }
@@ -20,5 +20,4 @@ export class SalesComponent implements OnInit {
 
 
 sale: Array<any>;
-sales: Array<any>;
 }
