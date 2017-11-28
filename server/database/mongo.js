@@ -2,7 +2,7 @@ const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
 const q = require("q");
 
-const url = 'mongodb://localhost:27017/PedidosWeb';
+const url = 'mongodb://RaulDominguez:proyectoweb@cluster0-shard-00-00-sdmmo.mongodb.net:27017,cluster0-shard-00-01-sdmmo.mongodb.net:27017,cluster0-shard-00-02-sdmmo.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin'
 
 /* URL PROFE
 'mongodb://app:BN15doPDRWCYfq3Q@cluster0-shard-00-00-q3ilt.mongodb.net:27017,cluster0-shard-00-01-q3ilt.mongodb.net:27017,cluster0-shard-00-02-q3ilt.mongodb.net:27017/app?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
