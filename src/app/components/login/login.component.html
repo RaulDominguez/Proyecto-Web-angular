@@ -1,5 +1,37 @@
-<div fxFlexLayout="center" fxFlex="50%">
-  <h3>Login</h3>
+<!-- <div fxFlexLayout="center" fxFlex="50%"> -->
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
+
+<div class="container">
+    <script id="metamorph-1-start" type="text/x-placeholder"></script><script id="metamorph-21-start" type="text/x-placeholder"></script>
+
+  	<div class="container text-center">
+  	    <form class="form-signin" data-ember-action="2">
+  	    	<h2 class="form-signin-heading">Inicio de Sesion</h2>
+
+  			  <small class="text-muted">Inicia sesion con:</small>
+  			  <br><br>
+
+          <p>
+          <a class="btn btn-primary social-login-btn social-facebook" href="/auth/facebook"><i class="fa fa-facebook"></i></a>
+          <a class="btn btn-primary social-login-btn social-linkedin" href="/auth/linkedin"><i class="fa fa-linkedin"></i></a>
+          <a class="btn btn-primary social-login-btn social-google" href="/auth/google"><i class="fa fa-google-plus"></i></a>
+          </p>
+
+          <small class="text-muted">O ingresa con tu nombre de usuario</small>
+          <br><br>
+
+          <input id="ember360" class="ember-view ember-text-field form-control login-input" placeholder="Usuario" type="text" name="user" [(ngModel)]="user">
+          <br>
+          <input id="ember361" class="ember-view ember-text-field form-control login-input-pass" placeholder="Password" type="password" name="password" [(ngModel)]="password">
+          <br>
+          <script id="metamorph-22-start" type="text/x-placeholder"></script><script id="metamorph-22-end" type="text/x-placeholder"></script>
+
+          <button class="btn btn-lg btn-danger btn-block btn-center" type="submit" data-bindattr-3="3" (click)="onLogin()">Sign in</button>
+          <br>
+        </form>
+      </div>
+<!--
+  <h2>Login</h2>
   <hr>
 
 
@@ -18,6 +50,7 @@
       </div>
     </div>
 
-     <button md-raised-button color="primary" (click)="onLogin()">Iniciar Sesion</button>
+     <button md-raised-button color="primary" class="btn btn-sm btn-danger" (click)="onLogin()">Iniciar Sesión</button>
 
 </div>
+-->

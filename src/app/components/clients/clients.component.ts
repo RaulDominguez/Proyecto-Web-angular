@@ -10,10 +10,12 @@ export class ClientsComponent implements OnInit {
 
   users: Array<any>;
 
-  user: { name: "", lastName: "", email: "" };
+  user: {name: "", lastName: "", email: ""};
   action: string = "default";
 
   constructor(private clientService: ClientService) {
+
+    //this.users = this.clientService.clients;
 
   }
 
@@ -21,51 +23,38 @@ export class ClientsComponent implements OnInit {
     this.onFind();
   }
 
-  onSelect(user){
-    this.user= JSON.parse(JSON.stringify(user));
-  }
-
-  onCreate(){
-    this.user = {name:"", lastName:"", email:""};
-    this.action = "create";
-  }
-
-  onEdit(user){
-    this.user= JSON.parse(JSON.stringify(user));
-    this.action= "edit";
-  }
-
-  onFind() {
-    this.clientService.find().subscribe((res: any) => {
-      this.users = res.body;
-    });
-  }
-
-  onSave(user) {
-    if (this.action == "edit") {
-      this.clientService.updateOne(user).subscribe((res: any) => {
-        this.onFind();
-      });
-    }
-    if (this.action == "create") {
-      this.clientService.insertOne(user).subscribe((res: any) => {
-        this.onFind();
-      });
-    }
-  }
-
-  onDelete(id) {
-    this.clientService.deleteOne(id).subscribe((res: any) => {
+  onSave(user){
+  if (this.action == "edit"){
+    this.clientService.updateOne(user).subscribe((res:any) => {
       this.onFind();
     });
   }
+  if (this.action == "create"){
+    this.clientService.insertOne(user).subscribe((res:any) => {
+      this.onFind();
+    });
+    //this.users.push(user);
+  }
+  }
 
-  updateclients(search){
+  onFind(){
+    this.clientService.find().subscribe((res:any) => {
+      this.users = res.body;
+      //console.log(res.body);
+    });
+  }
 
-    console.log(search);
-        this.clientService.findbyname(search).subscribe((res:any) => {
-        this.users = res.body;
-        console.log(res.body);
-        });
-      }
+  onCreate(){
+  this.user = {name: "", lastName: "", email: ""};
+  this.action = "create";
+}
+
+  onDelete(index){
+    this.users.splice(index, 1);
+    }
+
+  onEdit(user){
+    this.user = user;
+    this.action = "edit";
+  }
 }
