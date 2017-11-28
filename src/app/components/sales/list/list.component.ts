@@ -4,26 +4,33 @@ import { SalesService } from '../../../services/sales/sales.service';
 @Component({
   selector: 'app-sales-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
 })
+
 export class ListComponent implements OnInit {
 
-  constructor(private salesService: SalesService) {
+  sales: Array<any>;
+  isLoading = false;
 
-    this.sales = this.salesService.sales;
-
+  constructor(private SaleService:SalesService) {
+    //this.sales = SaleService.sales;
   }
 
   ngOnInit() {
+    this.onFind();
   }
-  sales: Array<any>;
-  sale: {
-    order: "",
-    date: "",
-    total: "",
-    client: {name:"", lastName:"", email:""},
-    items: {id:"", name:"", brand:"", provider:"", quantity:"", price:""},
-    address: {street:"", city:"", zip:""}
-  };
+
+  onFind(){
+    this.isLoading= true;
+    this.SaleService.find().subscribe((res:any) => {
+      this.sales = res.body;
+      this.isLoading= false;
+    });
+  }
+
+  onDelete(id){
+    this.SaleService.deleteOne(id).subscribe((res:any) => {
+      this.onFind();
+    });
+  }
 
 }
