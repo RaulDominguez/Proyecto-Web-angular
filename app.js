@@ -1,14 +1,34 @@
-const express = require('express');
+const express    = require('express');
 const bodyParser = require('body-parser');
-const path = require('path');
-const app = express();
-const api = require('./server/routes/api');
+const path       = require('path');
+const app        = express();
+const api        = require('./server/routes/api');
+var passport     = require('passport');
 
 console.log("Hola mundo");
 
 // Routes
+app.use(express.static(__dirname + '/dist'));
+app.use(bodyParser.json());
+
 app.get('/',  function(req, res) {
     res.sendFile(path.resolve('dist/index.html'));
+});
+
+app.get('/home', function(req, res){
+  res.sendFile(path.resolve('dist/index.html'));
+});
+
+app.get('/clients', function(req, res){
+  res.sendFile(path.resolve('dist/index.html'));
+});
+
+app.get('/inventory', function(req, res){
+  res.sendFile(path.resolve('dist/index.html'));
+});
+
+app.get('/sales', function(req, res){
+  res.sendFile(path.resolve('dist/index.html'));
 });
 
 // setting port
@@ -41,3 +61,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }))
+
+//passport sesiones
+var expressSession = require('express-session');
+app.use(expressSession({secret: 'mySecretKey'}));
+app.use(passport.initialize());
+app.use(passport.session());
