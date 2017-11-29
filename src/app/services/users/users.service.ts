@@ -10,10 +10,13 @@ export class UserService {
 
   constructor() { }
 
-  login(user){
-    this.user = user;
+  login(user, password){
+    var log = {user:username, password:password};
+
+    return this.http.post('/api/login', log);
+    /*this.user = user;
     this.logedin = true;
-    this.userChanges.emit();
+    this.userChanges.emit();*/
   }
 
   logout(){
@@ -22,7 +25,7 @@ export class UserService {
     this.userChanges.emit();
   }
 
-  isLogedin<booelean>(){ //Se cambio por booelan
+  isLogedin<booelean>(){
     return this.logedin;
   }
 
